@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <style>
+        tr{
+            background-color: aliceblue;
+            font-size: 30px;
+        }
+        td{
+            text-align: center;
+        }
+    </style>
+</head>
+<body>
+<h1>用户详细信息:{{ user_info.username }}<h1>
+    <div class="parent"> </div>
+    <div class="child">
+        <table border="1" cellpadding="15"  width="50%" cellspacing="pixels">
+            <tr>
+                <th>参数</th>
+                <th>数据内容</th>
+            </tr>
+
+            <tr>
+                <td>ID</td>
+                <td>{{ user_info.id }}</td>
+            </tr>
+            <tr>
+                <td>username</td>
+                <td>{{ user_info.username }}</td>
+            </tr>
+            <tr>
+                <td>password</td>
+                <td>{{ user_info.password }}</td>
+            </tr>
+            <tr>
+                <td>email</td>
+                <td>{{ user_info.email }}</td>
+            </tr>
+            <tr>
+                <td>group</td>
+                <td>{{ user_info.group.caption }}</td>
+            </tr>
+        </table>
+    </div>
+
+    <script type="text/javascript" src="/static/jquery.min.js"></script>
+    <script type="text/javascript" >
+    </script>
+</body>
+</html>

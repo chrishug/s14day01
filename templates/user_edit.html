@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+    <div>
+        <form action="/user_edit-{{ obj.id }}/" method="post" >
+            <input type="text" name="id" value="{{ obj.id }}" style="display: none"/>
+            <input type="text" name="user"  value="{{ obj.username }}"/>
+            <input type="password" name="pwd" value="{{ obj.password }}"/>
+            <input type="email" name="email" value="{{ obj.email }}"/>
+            <select name="group_id" >
+                {% for item in group_list %}
+                <option  value="{{ item.id }}">{{ item.caption }}</option>
+                {% endfor %}
+            </select>
+            <input type="submit" value="提交"/>
+        </form>
+    </div>
+</body>
+</html>

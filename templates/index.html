@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+
+</head>
+<body>
+    <div>
+        <form action="index.html" method="post" >
+            <input type="text" name="user" placeholder="用户名"/>
+            <input type="password" name="pwd" placeholder="密码"/>
+            <input type="email" name="email" placeholder="邮箱"/>
+            <select name="group_id">
+               {% for item in group_list %}
+                <option value="{{ item.id }}">{{ item.caption }}</option>
+                {% endfor %}
+            </select>
+            <input type="submit" value="提交"/>
+        </form>
+    </div>
+    <div>
+        <table border="1" cellpadding="10" width="60%" cellspacing="pixels" style="background-color: aliceblue">
+            <p><caption style="font-size: 30px"><b>用户列表</b></caption></p>
+            <th style="display: none">ID</th>
+            <th>序号</th>
+            <th>用户名</th>
+            <th>密码</th>
+            <th>邮箱</th>
+            <th>部门</th>
+            <th>操作</th>
+
+           {% for item in user_list %}
+            <tr>
+                <td>{{ forloop.counter }}</td>
+                <td>
+                    <a href="/user_detail-{{ item.id }}.html" target="_blank">{{ item.username }}</a>
+                </td>
+                <td>{{ item.password }}</td>
+                <td>{{ item.email }}</td>
+                <td>{{ item.group.caption }}</td>
+                <td>
+                    <a href="/user_del-{{ item.id }}/"><button style="width: 40%">删除</button></a>
+                    <a href="/user_edit-{{ item.id }}/"><button style="width: 40%">修改</button></a>
+                </td>
+            </tr>
+            {% endfor %}
+        </table>
+    </div>
+
+
+</body>
+</html>
